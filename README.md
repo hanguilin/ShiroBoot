@@ -1,2 +1,2 @@
 # ShiroBoot
-SpringBoot整合Shiro,实现前后端分离的管理系统
+SpringBoot整合Shiro,实现前后端分离的权限认证系统
