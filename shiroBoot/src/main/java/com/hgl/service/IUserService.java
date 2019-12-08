@@ -8,9 +8,8 @@
  */
 package com.hgl.service;
 
-import com.hgl.common.JsonFilter;
 import com.hgl.common.JsonResult;
-import com.hgl.entity.User;
+import com.hgl.util.filter.JsonFilter;
 
 /** 
 * @author  Administrator
@@ -26,6 +25,6 @@ public interface IUserService {
 	 * @param filter
 	 * @return 
 	 */
-	JsonResult filter(JsonFilter<User> filter);
+	JsonResult filter(JsonFilter filter);
 
 }

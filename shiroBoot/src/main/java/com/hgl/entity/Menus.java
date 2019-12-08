@@ -2,6 +2,7 @@ package com.hgl.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +30,9 @@ public class Menus {
     private Integer sort;
 
     private String note;
+    
+    @Column(columnDefinition = "int default '2'")
+    private Integer flag;
 
     private Long parentId;
 
@@ -142,6 +146,14 @@ public class Menus {
 
 	public void setModifiedUser(String modifiedUser) {
 		this.modifiedUser = modifiedUser;
+	}
+
+	public Integer getFlag() {
+		return flag;
+	}
+
+	public void setFlag(Integer flag) {
+		this.flag = flag;
 	}
 
 }

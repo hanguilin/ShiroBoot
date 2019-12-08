@@ -8,17 +8,16 @@
  */
 package com.hgl.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import com.hgl.common.JsonFilter;
 import com.hgl.common.JsonResult;
 import com.hgl.dao.UserDao;
 import com.hgl.entity.User;
 import com.hgl.service.IUserService;
-import com.hgl.util.FilterUtil;
+import com.hgl.util.filter.FilterUtil;
+import com.hgl.util.filter.JsonFilter;
 
 /** 
 * @author  Administrator
@@ -39,11 +38,11 @@ public class UserServiceImpl implements IUserService {
 	 * @return 
 	 */
 	@Override
-	public JsonResult filter(JsonFilter<User> filter) {
+	public JsonResult filter(JsonFilter filter) {
 		if(null == filter) {
 			return JsonResult.fail("参数为空", null);
 		}
-		List<User> data = new FilterUtil<User>().filter(userDao, filter, User.class);
-		return JsonResult.success("success", data);
+		Page<User> page = new FilterUtil<User>().filter(userDao, filter, User.class);
+		return JsonResult.success("success", page.getContent(), page.getTotalElements());
 	}
 }

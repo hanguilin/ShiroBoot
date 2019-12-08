@@ -8,9 +8,9 @@
  */
 package com.hgl.service;
 
-import com.hgl.common.JsonFilter;
 import com.hgl.common.JsonResult;
 import com.hgl.entity.Menus;
+import com.hgl.util.filter.JsonFilter;
 
 /** 
 * @author  Administrator
@@ -26,6 +26,13 @@ public interface IMenusService {
 	 * @param filter
 	 * @return 
 	 */
-	JsonResult filter(JsonFilter<Menus> filter);
+	JsonResult filter(JsonFilter filter);
+
+	/** 
+	 * findList
+	 *
+	 * @return 
+	 */
+	JsonResult findList();
 
 }

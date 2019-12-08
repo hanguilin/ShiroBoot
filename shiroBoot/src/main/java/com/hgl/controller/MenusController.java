@@ -9,14 +9,11 @@
 package com.hgl.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hgl.common.JsonFilter;
 import com.hgl.common.JsonResult;
-import com.hgl.entity.Menus;
 import com.hgl.service.IMenusService;
 
 /** 
@@ -32,8 +29,8 @@ public class MenusController {
 	@Autowired
 	private IMenusService menusService;
 	
-	@PostMapping("filter")
-	public JsonResult doFilter(@RequestBody JsonFilter<Menus> filter) {
-		return menusService.filter(filter);
+	@GetMapping("list")
+	public JsonResult doFilter() {
+		return menusService.findList();
 	}
 }

@@ -21,15 +21,18 @@ public class JsonResult {
 	
 	private Object data;
 	
+	private Long count;
+	
 	public JsonResult() {
 		super();
 	}
 	
-	public JsonResult(int code, String msg, Object data) {
+	public JsonResult(int code, String msg, Object data, Long count) {
 		super();
 		this.code = code;
 		this.msg = msg;
 		this.data = data;
+		this.count = count;
 	}
 
 	public int getCode() {
@@ -57,10 +60,27 @@ public class JsonResult {
 	}
 	
 	public static JsonResult success(String msg, Object data) {
-		return new JsonResult(ErrorCode.SUCCESS, msg, data);
+		return new JsonResult(ErrorCode.SUCCESS, msg, data, null);
+	}
+	
+	public static JsonResult success(String msg, Object data, Long count) {
+		return new JsonResult(ErrorCode.SUCCESS, msg, data, count);
 	}
 	
 	public static JsonResult fail(String msg, Object data) {
-		return new JsonResult(ErrorCode.FAIL, msg, data);
+		return new JsonResult(ErrorCode.FAIL, msg, data, null);
 	}
+	
+	public static JsonResult fail(String msg, Object data, Long count) {
+		return new JsonResult(ErrorCode.FAIL, msg, data, count);
+	}
+
+	public Long getCount() {
+		return count;
+	}
+
+	public void setCount(Long count) {
+		this.count = count;
+	}
+	
 }

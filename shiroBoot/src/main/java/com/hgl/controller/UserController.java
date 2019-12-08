@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hgl.common.JsonFilter;
 import com.hgl.common.JsonResult;
-import com.hgl.entity.User;
 import com.hgl.service.IUserService;
+import com.hgl.util.filter.JsonFilter;
 
 /** 
 * @author  Administrator
@@ -33,7 +32,7 @@ public class UserController {
 	private IUserService userService;
 	
 	@PostMapping("filter")
-	public JsonResult doFilter(@RequestBody JsonFilter<User> filter) {
+	public JsonResult doFilter(@RequestBody JsonFilter filter) {
 		return userService.filter(filter);
 	}
 

@@ -29,7 +29,7 @@ public class CustomShiroFilter extends UserFilter {
 
 	@Override
 	protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-		String json = JSON.toJSONString(new JsonResult(ErrorCode.ACCESS_DENIED, "请求拦截", null));
+		String json = JSON.toJSONString(new JsonResult(ErrorCode.ACCESS_DENIED, "请求拦截", null, null));
 		PrintWriter writer = response.getWriter();
 		writer.write(json);
 		writer.flush();

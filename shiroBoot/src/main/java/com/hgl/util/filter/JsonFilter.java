@@ -6,16 +6,19 @@
  * Copyright (c) 2019, hanguilin All Rights Reserved. 
  * 
  */
-package com.hgl.common;
+package com.hgl.util.filter;
+
+import java.util.List;
+
 /** 
 * @author  Administrator
 * @date 2019年12月7日 下午5:21:07 
 * @version 1.0  
 * @since   
 */
-public class JsonFilter<T> {
+public class JsonFilter {
 	
-	private T filterObj;
+	private List<FilterCompoment> rules;
 	
 	private Integer page;
 	
@@ -26,14 +29,6 @@ public class JsonFilter<T> {
 	private String sortOrder;
 	
 	private String searchWords;
-
-	public T getFilterObj() {
-		return filterObj;
-	}
-
-	public void setFilterObj(T filterObj) {
-		this.filterObj = filterObj;
-	}
 
 	public Integer getPage() {
 		return page;
@@ -74,5 +69,12 @@ public class JsonFilter<T> {
 	public void setSearchWords(String searchWords) {
 		this.searchWords = searchWords;
 	}
-	
+
+	public List<FilterCompoment> getRules() {
+		return rules;
+	}
+
+	public void setRules(List<FilterCompoment> rules) {
+		this.rules = rules;
+	}
 }
